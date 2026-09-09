@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Sidebar from "./components/Sidebar";
-import Navbar from "./components/Navbar";
 
 import Dashboard from "./pages/Dashboard";
 import RiskMapPage from "./pages/RiskMapPage";
@@ -14,43 +13,70 @@ import Alerts from "./pages/Alerts";
 import Analytics from "./pages/Analytics";
 
 function App() {
+
   return (
+
     <BrowserRouter>
+
       <div className="flex min-h-screen bg-slate-100">
 
         <Sidebar />
 
-        <div className="flex-1 min-w-0">
+        <main className="flex-1">
 
-          <Navbar />
+          <Routes>
 
-          <main>
-            <Routes>
+            <Route
+              path="/"
+              element={<Dashboard />}
+            />
 
-              <Route path="/" element={<Dashboard />} />
+            <Route
+              path="/risk-map"
+              element={<RiskMapPage />}
+            />
 
-              <Route path="/risk-map" element={<RiskMapPage />} />
+            <Route
+              path="/zone/:zoneId"
+              element={<ZoneDetails />}
+            />
 
-              <Route path="/zone/:zoneId" element={<ZoneDetails />} />
+            <Route
+              path="/forecast"
+              element={<Forecast />}
+            />
 
-              <Route path="/forecast" element={<Forecast />} />
+            <Route
+              path="/priority"
+              element={<Priority />}
+            />
 
-              <Route path="/priority" element={<Priority />} />
+            <Route
+              path="/scenario"
+              element={<ScenarioLab />}
+            />
 
-              <Route path="/scenario" element={<ScenarioLab />} />
+            <Route
+              path="/field-reports"
+              element={<FieldReports />}
+            />
 
-              <Route path="/field-reports" element={<FieldReports />} />
+            <Route
+              path="/alerts"
+              element={<Alerts />}
+            />
 
-              <Route path="/alerts" element={<Alerts />} />
+            <Route
+              path="/analytics"
+              element={<Analytics />}
+            />
 
-              <Route path="/analytics" element={<Analytics />} />
+          </Routes>
 
-            </Routes>
-          </main>
-
-        </div>
+        </main>
 
       </div>
+
     </BrowserRouter>
   );
 }
