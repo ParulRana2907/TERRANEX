@@ -9,15 +9,49 @@ import {
   BarChart3,
 } from "lucide-react";
 
+import { NavLink } from "react-router-dom";
+
 const menuItems = [
-  { name: "Dashboard", icon: LayoutDashboard },
-  { name: "Risk Map", icon: Map },
-  { name: "Forecast", icon: CloudRain },
-  { name: "Response Priority", icon: Siren },
-  { name: "Scenario Lab", icon: FlaskConical },
-  { name: "Field Reports", icon: FileWarning },
-  { name: "Alerts", icon: Bell },
-  { name: "Analytics", icon: BarChart3 },
+  {
+    name: "Dashboard",
+    icon: LayoutDashboard,
+    path: "/",
+  },
+  {
+    name: "Risk Map",
+    icon: Map,
+    path: "/risk-map",
+  },
+  {
+    name: "Forecast",
+    icon: CloudRain,
+    path: "/forecast",
+  },
+  {
+    name: "Response Priority",
+    icon: Siren,
+    path: "/priority",
+  },
+  {
+    name: "Scenario Lab",
+    icon: FlaskConical,
+    path: "/scenario",
+  },
+  {
+    name: "Field Reports",
+    icon: FileWarning,
+    path: "/field-reports",
+  },
+  {
+    name: "Alerts",
+    icon: Bell,
+    path: "/alerts",
+  },
+  {
+    name: "Analytics",
+    icon: BarChart3,
+    path: "/analytics",
+  },
 ];
 
 function Sidebar() {
@@ -39,21 +73,31 @@ function Sidebar() {
       <nav className="space-y-2">
 
         {menuItems.map((item) => {
+
           const Icon = item.icon;
 
           return (
-            <button
+            <NavLink
               key={item.name}
-              className="w-full flex items-center gap-3 px-4 py-3 rounded-lg
-              text-slate-300 hover:bg-slate-800 hover:text-white
-              transition text-left"
+              to={item.path}
+              className={({ isActive }) =>
+                `w-full flex items-center gap-3 px-4 py-3 rounded-lg
+                transition text-sm
+                ${
+                  isActive
+                    ? "bg-slate-700 text-white"
+                    : "text-slate-300 hover:bg-slate-800 hover:text-white"
+                }`
+              }
             >
+
               <Icon size={19} />
 
-              <span className="text-sm">
+              <span>
                 {item.name}
               </span>
-            </button>
+
+            </NavLink>
           );
         })}
 

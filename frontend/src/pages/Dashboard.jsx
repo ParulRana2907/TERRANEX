@@ -1,3 +1,4 @@
+import RiskMap from "../components/RiskMap";
 import KPICard from "../components/KPICard";
 
 function Dashboard() {
@@ -55,14 +56,11 @@ function Dashboard() {
             Terrain Risk Map
           </h2>
 
-          <div className="h-72 mt-4 bg-slate-100 rounded-lg
-            flex items-center justify-center">
+          <div className="h-72 mt-4 rounded-lg overflow-hidden">
 
-            <p className="text-slate-400">
-              GIS Risk Map — Coming Next
-            </p>
+  <RiskMap />
 
-          </div>
+</div>
 
         </div>
 
