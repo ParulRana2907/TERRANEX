@@ -13,9 +13,7 @@ import Alerts from "./pages/Alerts";
 import Analytics from "./pages/Analytics";
 
 function App() {
-
   return (
-
     <BrowserRouter>
 
       <div className="flex min-h-screen bg-slate-100">
@@ -26,46 +24,55 @@ function App() {
 
           <Routes>
 
+            {/* Dashboard */}
             <Route
               path="/"
               element={<Dashboard />}
             />
 
+            {/* Risk Map */}
             <Route
               path="/risk-map"
               element={<RiskMapPage />}
             />
 
+            {/* Zone Details */}
             <Route
               path="/zone/:zoneId"
               element={<ZoneDetails />}
             />
 
+            {/* Risk Forecast */}
             <Route
               path="/forecast"
               element={<Forecast />}
             />
 
+            {/* Response Priority */}
             <Route
               path="/priority"
               element={<Priority />}
             />
 
+            {/* Scenario Lab */}
             <Route
               path="/scenario"
               element={<ScenarioLab />}
             />
 
+            {/* Field Reports */}
             <Route
               path="/field-reports"
               element={<FieldReports />}
             />
 
+            {/* Alerts */}
             <Route
               path="/alerts"
               element={<Alerts />}
             />
 
+            {/* Analytics */}
             <Route
               path="/analytics"
               element={<Analytics />}
